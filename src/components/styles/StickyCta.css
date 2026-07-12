@@ -1,0 +1,26 @@
+.sticky-cta {
+  display: none;
+  position: fixed;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  z-index: 100;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.25rem;
+  border-radius: 999px;
+  background: #25d366;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+.sticky-cta:hover {
+  color: #fff;
+}
+
+@media screen and (max-width: 1024px) {
+  .sticky-cta {
+    display: inline-flex;
+  }
+}

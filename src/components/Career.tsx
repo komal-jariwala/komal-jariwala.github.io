@@ -1,95 +1,64 @@
+import SectionHeading from "./SectionHeading";
 import "./styles/Career.css";
 
-const Career = () => {
-  return (
-    <div className="career-section section-container">
-      <div className="career-container">
-        <h2>
-          My career <span>&</span>
-          <br /> experience
-        </h2>
-        <div className="career-info">
-          <div className="career-timeline">
-            <div className="career-dot"></div>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Sr. React Native Developer</h4>
-                <h5>HAAT – Food Delivery app</h5>
+const roles = [
+  {
+    title: "Sr. React Native Developer",
+    company: "HAAT",
+    period: "Oct 2025 – Present",
+    detail: "Food delivery · Android 16K, list perf, startup shipping pace.",
+  },
+  {
+    title: "Software Engineer",
+    company: "Logicwind",
+    period: "Sep 2022 – Sep 2025",
+    detail: "30% faster load times · native modules · mentored juniors.",
+  },
+  {
+    title: "React Native Developer",
+    company: "Triveni Infotech",
+    period: "Jul 2020 – Sep 2022",
+    detail: "HIPAA healthcare · GraphQL · Fastlane · 40% fewer crashes.",
+  },
+  {
+    title: "React Native Developer",
+    company: "Narola Infotech",
+    period: "Jan 2020 – Jun 2020",
+    detail: "Redux/MobX · REST APIs · Firebase MVPs.",
+  },
+  {
+    title: "Intern Android Developer",
+    company: "Dominant Infotech",
+    period: "Jun 2016 – Jun 2017",
+    detail: "Java/XML Android modules · API integration.",
+  },
+];
+
+const Career = () => (
+  <section className="career-section section-wrap" id="career">
+    <SectionHeading
+      index="04"
+      title="Experience"
+      subtitle="7+ years building mobile — startups to healthcare."
+    />
+    <div className="career-track">
+      {roles.map((role, i) => (
+        <article key={role.company + role.period} className="career-card">
+          <span className="career-card__step">{String(i + 1).padStart(2, "0")}</span>
+          <div className="career-card__main">
+            <div className="career-card__head">
+              <div>
+                <h3>{role.title}</h3>
+                <p className="career-card__company">{role.company}</p>
               </div>
-              <h3>Oct 2025 – Present</h3>
+              <time>{role.period}</time>
             </div>
-            <p>
-              Improved app performance and compatibility (including Android 16K
-              support, list optimization, and timer enhancements) while working in
-              a fast-paced startup environment focused on timely data visibility
-              and delivery.
-            </p>
+            <p className="career-card__detail">{role.detail}</p>
           </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Software Engineer</h4>
-                <h5>Logicwind</h5>
-              </div>
-              <h3>Sep 2022 – Sept 2025</h3>
-            </div>
-            <p>
-              Delivered scalable and responsive mobile apps using React Native
-              and TypeScript, improving load times by 30%. Built and integrated
-              custom native modules (iOS – Objective-C/Swift, Android –
-              Kotlin/Java). Diagnosed and resolved native bridge crashes, memory
-              leaks, and performance bottlenecks. Mentored junior developers.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>React Native Developer</h4>
-                <h5>Triveni Infotech</h5>
-              </div>
-              <h3>Jul 2020 – Sep 2022</h3>
-            </div>
-            <p>
-              Built HIPAA-compliant healthcare apps with secure login (Azure
-              B2C, Okta) and GraphQL APIs; integrated Context hooks, real-time
-              syncing, push notifications, and Firebase analytics. Implemented
-              CI/CD pipelines using Fastlane & CodePush. Led Agile ceremonies
-              and reduced crash rate by 40%.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>React Native Developer</h4>
-                <h5>Narola Infotech</h5>
-              </div>
-              <h3>Jan 2020 – Jun 2020</h3>
-            </div>
-            <p>
-              Implemented complex state management with Redux, MobX and Context.
-              Integrated REST APIs with Axios/Fetch. Built UI features for MVPs
-              and integrated Firebase services.
-            </p>
-          </div>
-          <div className="career-info-box">
-            <div className="career-info-in">
-              <div className="career-role">
-                <h4>Intern Android Developer</h4>
-                <h5>Dominant Infotech</h5>
-              </div>
-              <h3>Jun 2016 – Jun 2017</h3>
-            </div>
-            <p>
-              Developed core Android modules using Java/XML and gained hands-on
-              experience in data handling and API integration.
-            </p>
-          </div>
-        </div>
-      </div>
+        </article>
+      ))}
     </div>
-  );
-};
+  </section>
+);
 
 export default Career;

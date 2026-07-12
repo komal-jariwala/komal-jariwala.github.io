@@ -1,78 +1,97 @@
 import { MdArrowOutward, MdCopyright } from "react-icons/md";
+import { FaWhatsapp } from "react-icons/fa6";
+import SectionHeading from "./SectionHeading";
+import { profile, getWhatsAppLink } from "../data/profile";
 import "./styles/Contact.css";
 
 const Contact = () => {
+  const whatsappFulltime = getWhatsAppLink("fulltime");
+  const whatsappFreelance = getWhatsAppLink("freelance");
+
   return (
-    <div className="contact-section section-container" id="contact">
-      <div className="contact-container">
-        <h3>Contact</h3>
-        <div className="contact-flex">
-          <div className="contact-box">
-            <h4>Email</h4>
-            <p>
-              <a href="mailto:kmlrn8522@gmail.com" data-cursor="disable">
-                kmlrn8522@gmail.com
-              </a>
-            </p>
-            <h4>Education</h4>
-            <p>
-              B.E. in Computer Engineering, BITS Vadodara, GTU – 2020
-              <br />
-              Diploma in Computer Science, GPG Surat, GTU – 2017
-              <br />
-              Higher Secondary, M.T Jariwala – 2014
-            </p>
-          </div>
-          <div className="contact-box">
-            <h4>Social</h4>
-            <a
-              href="https://github.com/komaljariwala"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Github <MdArrowOutward />
+    <section className="contact-section section-wrap" id="contact">
+      <SectionHeading
+        index="06"
+        title="Let's work together"
+        subtitle="Full-time, freelance, or contract — share your JD or book a call."
+      />
+
+      <div className="contact-cta-card">
+        <div className="contact-cta-card__tags">
+          {profile.openTo.map((item) => (
+            <span key={item}>{item}</span>
+          ))}
+        </div>
+        <p className="contact-cta-card__loc">{profile.locationPreference}</p>
+        <div className="contact-cta-card__actions">
+          <a
+            href={whatsappFulltime!}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--whatsapp"
+          >
+            <FaWhatsapp /> Share JD on WhatsApp
+          </a>
+          <a
+            href={whatsappFreelance!}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--ghost"
+          >
+            Freelance inquiry
+          </a>
+          <a
+            href={profile.calendly}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn btn--ghost"
+          >
+            Book 30 min
+          </a>
+        </div>
+      </div>
+
+      <div className="contact-grid">
+        <div className="contact-block">
+          <h4>Email</h4>
+          <a href={`mailto:${profile.email}`}>{profile.email}</a>
+        </div>
+        <div className="contact-block">
+          <h4>WhatsApp</h4>
+          <a
+            href={getWhatsAppLink("general")!}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="contact-wa"
+          >
+            +91 79906 40751 <MdArrowOutward />
+          </a>
+        </div>
+        <div className="contact-block">
+          <h4>Social</h4>
+          <div className="contact-socials">
+            <a href={profile.social.github} target="_blank" rel="noopener noreferrer">
+              GitHub <MdArrowOutward />
             </a>
-            <a
-              href="https://www.linkedin.com/in/komal-jariwala"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Linkedin <MdArrowOutward />
+            <a href={profile.social.linkedin} target="_blank" rel="noopener noreferrer">
+              LinkedIn <MdArrowOutward />
             </a>
-            <a
-              href="https://x.com/komaljariwala"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
+            <a href={profile.social.twitter} target="_blank" rel="noopener noreferrer">
               Twitter <MdArrowOutward />
             </a>
-            <a
-              href="https://www.instagram.com/komaljariwala"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cursor="disable"
-              className="contact-social"
-            >
-              Instagram <MdArrowOutward />
-            </a>
-          </div>
-          <div className="contact-box">
-            <h2>
-              Designed and Developed <br /> by <span>Komal Jariwala</span>
-            </h2>
-            <h5>
-              <MdCopyright /> 2025
-            </h5>
           </div>
         </div>
       </div>
-    </div>
+
+      <footer className="contact-footer">
+        <p>
+          Designed & built by <span>{profile.name}</span>
+        </p>
+        <p>
+          <MdCopyright /> 2026
+        </p>
+      </footer>
+    </section>
   );
 };
 
