@@ -7,6 +7,7 @@ import {
 import "./styles/SocialIcons.css";
 import { TbNotes } from "react-icons/tb";
 import HoverLinks from "./HoverLinks";
+import { profile } from "../data/profile";
 
 const SocialIcons = () => {
   return (
@@ -51,7 +52,7 @@ const SocialIcons = () => {
       </div>
       <a
         className="resume-button"
-        href="/resume.pdf"
+        href={profile.resume}
         target="_blank"
         rel="noopener noreferrer"
       >
