@@ -11,6 +11,22 @@
       name="description"
       content="Senior Mobile Developer with 7+ years building React Native apps. Open to full-time roles and freelance projects. Healthcare, wellness & startup experience."
     />
+    <script>
+      // Applied before first paint so a stored light theme never flashes dark.
+      (function () {
+        try {
+          var valid = ["aurora", "editorial", "neon"];
+          var query = new URLSearchParams(location.search).get("theme");
+          var stored = localStorage.getItem("kj-theme");
+          var picked = valid.indexOf(query) !== -1 ? query : stored;
+          if (valid.indexOf(picked) !== -1) {
+            document.documentElement.dataset.theme = picked;
+          }
+        } catch (e) {
+          /* storage blocked — the app falls back to the default theme */
+        }
+      })();
+    </script>
   </head>
 
   <body>

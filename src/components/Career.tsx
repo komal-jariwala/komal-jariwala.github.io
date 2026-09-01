@@ -1,4 +1,7 @@
+import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
+import { stagger, viewportOnce } from "../lib/motion";
+import { handleSpotlight } from "../lib/spotlight";
 import "./styles/Career.css";
 
 const roles = [
@@ -34,6 +37,16 @@ const roles = [
   },
 ];
 
+/** Cards slide in from the timeline rail rather than fading straight up. */
+const slideFromRail = {
+  hidden: { opacity: 0, x: -28 },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: { duration: 0.5, ease: [0.22, 1, 0.36, 1] as const },
+  },
+};
+
 const Career = () => (
   <section className="career-section section-wrap" id="career">
     <SectionHeading
@@ -41,10 +54,23 @@ const Career = () => (
       title="Experience"
       subtitle="7+ years building mobile — startups to healthcare."
     />
-    <div className="career-track">
+    <motion.div
+      className="career-track"
+      variants={stagger(0.09)}
+      initial="hidden"
+      whileInView="show"
+      viewport={viewportOnce}
+    >
       {roles.map((role, i) => (
-        <article key={role.company + role.period} className="career-card">
-          <span className="career-card__step">{String(i + 1).padStart(2, "0")}</span>
+        <motion.article
+          key={role.company + role.period}
+          className="career-card spotlight"
+          variants={slideFromRail}
+          onPointerMove={handleSpotlight}
+        >
+          <span className="career-card__step">
+            {String(i + 1).padStart(2, "0")}
+          </span>
           <div className="career-card__main">
             <div className="career-card__head">
               <div>
@@ -55,9 +81,9 @@ const Career = () => (
             </div>
             <p className="career-card__detail">{role.detail}</p>
           </div>
-        </article>
+        </motion.article>
       ))}
-    </div>
+    </motion.div>
   </section>
 );
 

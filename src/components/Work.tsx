@@ -1,6 +1,9 @@
+import { motion } from "framer-motion";
 import { MdArrowOutward } from "react-icons/md";
 import SectionHeading from "./SectionHeading";
 import { projects } from "../data/projects";
+import { fadeUp, stagger, viewportOnce } from "../lib/motion";
+import { handleSpotlight } from "../lib/spotlight";
 import "./styles/Work.css";
 
 const Work = () => {
@@ -12,11 +15,21 @@ const Work = () => {
         subtitle="Live on Google Play — healthcare, wellness & productivity."
       />
 
-      <div className="work-grid">
+      <motion.div
+        className="work-grid"
+        variants={stagger(0.12)}
+        initial="hidden"
+        whileInView="show"
+        viewport={viewportOnce}
+      >
         {projects.map((project, i) => (
-          <article
+          <motion.article
             key={project.title}
-            className={`work-card ${i === 0 ? "work-card--lead" : ""}`}
+            className={`work-card spotlight glow-edge ${
+              i === 0 ? "work-card--lead" : ""
+            }`}
+            variants={fadeUp}
+            onPointerMove={handleSpotlight}
           >
             <a
               href={project.links[0]?.url}
@@ -24,7 +37,11 @@ const Work = () => {
               rel="noopener noreferrer"
               className="work-card__device"
             >
-              <div className="phone-frame">
+              <motion.div
+                className="phone-frame"
+                whileHover={{ y: -10, rotate: -1.5, scale: 1.03 }}
+                transition={{ type: "spring", stiffness: 260, damping: 20 }}
+              >
                 <img
                   src={project.image}
                   alt={`${project.title} screenshot`}
@@ -32,7 +49,7 @@ const Work = () => {
                   width={240}
                   height={480}
                 />
-              </div>
+              </motion.div>
             </a>
             <div className="work-card__body">
               <span className="work-card__num">0{i + 1}</span>
@@ -52,9 +69,9 @@ const Work = () => {
                 ))}
               </div>
             </div>
-          </article>
+          </motion.article>
         ))}
-      </div>
+      </motion.div>
     </section>
   );
 };

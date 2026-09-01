@@ -15,36 +15,40 @@ const SocialIcons = () => {
       <div className="social-icons" id="social">
         <span>
           <a
-            href="https://github.com/komaljariwala"
+            href={profile.social.github}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="GitHub"
           >
             <FaGithub />
           </a>
         </span>
         <span>
           <a
-            href="https://www.linkedin.com/in/komal-jariwala"
+            href={profile.social.linkedin}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="LinkedIn"
           >
             <FaLinkedinIn />
           </a>
         </span>
         <span>
           <a
-            href="https://x.com/komaljariwala"
+            href={profile.social.twitter}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="X"
           >
             <FaXTwitter />
           </a>
         </span>
         <span>
           <a
-            href="https://www.instagram.com/komaljariwala"
+            href={profile.social.instagram}
             target="_blank"
             rel="noopener noreferrer"
+            aria-label="Instagram"
           >
             <FaInstagram />
           </a>

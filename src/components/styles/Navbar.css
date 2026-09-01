@@ -15,16 +15,36 @@
   gap: 1rem;
   padding: 0.65rem 0.85rem 0.65rem 1.25rem;
   border-radius: 999px;
-  border: 1px solid var(--border);
-  background: rgba(3, 7, 18, 0.72);
+  border: var(--card-border);
+  background: var(--nav-bg);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   pointer-events: auto;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+  box-shadow: var(--card-shadow);
+  transition: padding 0.3s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+[data-theme="editorial"] .site-nav {
+  border-radius: var(--radius-lg);
+}
+
+/* Equal flex on the outer items keeps the island visually centred. */
+.site-nav__brand,
+.site-nav__end {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.site-nav__end {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 1.75rem;
 }
 
 .site-nav__brand {
-  font-weight: 700;
+  font-family: var(--font-display);
+  font-weight: var(--display-weight);
   font-size: 1.05rem;
   letter-spacing: -0.03em;
   color: var(--text);
@@ -47,14 +67,33 @@
 }
 
 .site-nav__links a {
+  position: relative;
   font-size: 0.82rem;
   font-weight: 500;
   color: var(--muted);
   transition: color 0.2s ease;
 }
 
+/* Underline that grows out from the centre on hover. */
+.site-nav__links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -5px;
+  height: 2px;
+  border-radius: 2px;
+  background: var(--accent-gradient);
+  transform: scaleX(0);
+  transition: transform 0.25s ease;
+}
+
 .site-nav__links a:hover {
   color: var(--text);
+}
+
+.site-nav__links a:hover::after {
+  transform: scaleX(1);
 }
 
 .site-nav__cta {
@@ -63,14 +102,22 @@
   font-size: 0.78rem;
   font-weight: 600;
   letter-spacing: 0.02em;
-  color: #030712;
-  background: linear-gradient(135deg, var(--accent), #2dd4bf);
+  color: var(--on-accent);
+  background: var(--btn-primary-bg);
   white-space: nowrap;
+  transition: box-shadow 0.2s ease;
 }
 
 .site-nav__cta:hover {
-  color: #030712;
-  box-shadow: 0 4px 20px rgba(56, 189, 248, 0.35);
+  color: var(--on-accent);
+  box-shadow: 0 4px 20px -4px var(--accent);
+}
+
+[data-theme="editorial"] .site-nav__cta {
+  border-radius: var(--radius);
+  border: 2px solid var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 @media screen and (min-width: 768px) {

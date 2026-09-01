@@ -1,0 +1,203 @@
+/*
+ * Every visual token the sections consume lives here, once per theme.
+ * Components must reference these variables rather than literal colours,
+ * otherwise they will not follow the theme switcher.
+ */
+
+:root,
+[data-theme="aurora"] {
+  --font-display: "Bricolage Grotesque", "Geist", system-ui, sans-serif;
+  --display-weight: 700;
+  --display-tracking: -0.03em;
+
+  --bg: #05070f;
+  --bg-2: #0a1020;
+  --surface: rgba(255, 255, 255, 0.04);
+  --surface-2: rgba(255, 255, 255, 0.05);
+  --surface-solid: #0d1424;
+
+  --text: #f1f5f9;
+  --muted: #94a3b8;
+
+  --accent: #38bdf8;
+  --accent-2: #a78bfa;
+  --accent-3: #2dd4bf;
+  --accent-soft: rgba(56, 189, 248, 0.1);
+  --accent-2-soft: rgba(167, 139, 250, 0.08);
+  --on-accent: #030712;
+
+  --card-border: 1px solid rgba(255, 255, 255, 0.09);
+  --card-border-hover: 1px solid rgba(56, 189, 248, 0.4);
+  --card-shadow: 0 1px 0 rgba(255, 255, 255, 0.04) inset;
+  --card-shadow-hover: 0 18px 40px -18px rgba(56, 189, 248, 0.45);
+  --card-blur: blur(14px);
+
+  --radius: 14px;
+  --radius-lg: 20px;
+
+  --nav-bg: rgba(5, 7, 15, 0.72);
+  --heading-gradient: linear-gradient(135deg, #f8fafc 30%, #94a3b8);
+  --accent-gradient: linear-gradient(135deg, #38bdf8, #a78bfa 50%, #2dd4bf);
+  --btn-primary-bg: linear-gradient(135deg, #38bdf8, #2dd4bf);
+
+  --spotlight-tint: rgba(56, 189, 248, 0.16);
+  --hairline: rgba(255, 255, 255, 0.1);
+  --grain-opacity: 0.025;
+
+  --sk-base: rgba(255, 255, 255, 0.06);
+  --sk-shine: rgba(255, 255, 255, 0.14);
+  --device-frame: #14171f;
+  --device-screen: #0a1120;
+  --device-shadow: 0 40px 80px -34px rgba(56, 189, 248, 0.55),
+    0 0 0 1px rgba(255, 255, 255, 0.07);
+  --spec-ink: rgba(148, 197, 255, 0.5);
+  --spec-grid: rgba(148, 197, 255, 0.09);
+}
+
+[data-theme="editorial"] {
+  --font-display: "Instrument Serif", Georgia, serif;
+  --display-weight: 400;
+  --display-tracking: -0.015em;
+
+  --bg: #f2ede1;
+  --bg-2: #e7dfcd;
+  --surface: #fffdf6;
+  --surface-2: #efe8d8;
+  --surface-solid: #fffdf6;
+
+  --text: #14120e;
+  --muted: #5f584a;
+
+  --accent: #f2400a;
+  --accent-2: #b8e02c;
+  --accent-3: #1b3fd8;
+  --accent-soft: rgba(242, 64, 10, 0.12);
+  --accent-2-soft: rgba(184, 224, 44, 0.24);
+  --on-accent: #fffdf6;
+
+  --card-border: 2px solid #14120e;
+  --card-border-hover: 2px solid #f2400a;
+  --card-shadow: 5px 5px 0 #14120e;
+  --card-shadow-hover: 9px 9px 0 #f2400a;
+  --card-blur: none;
+
+  --radius: 3px;
+  --radius-lg: 4px;
+
+  --nav-bg: #fffdf6;
+  --heading-gradient: none;
+  --accent-gradient: linear-gradient(135deg, #f2400a, #ff8a3d);
+  --btn-primary-bg: #14120e;
+
+  --spotlight-tint: transparent;
+  --hairline: #14120e;
+  --grain-opacity: 0.05;
+
+  --sk-base: #e7dfcd;
+  --sk-shine: #f7f2e6;
+  --device-frame: #14120e;
+  --device-screen: #fffdf6;
+  --device-shadow: 10px 10px 0 #f2400a, 0 0 0 2px #14120e;
+  --spec-ink: rgba(20, 18, 14, 0.55);
+  --spec-grid: rgba(20, 18, 14, 0.07);
+}
+
+[data-theme="neon"] {
+  --font-display: "Space Grotesk", "Geist", system-ui, sans-serif;
+  --display-weight: 700;
+  --display-tracking: -0.04em;
+
+  --bg: #06010e;
+  --bg-2: #12042a;
+  --surface: rgba(124, 58, 237, 0.08);
+  --surface-2: rgba(0, 229, 255, 0.07);
+  --surface-solid: #130630;
+
+  --text: #f6f0ff;
+  --muted: #a58fcf;
+
+  --accent: #ff2e97;
+  --accent-2: #00e5ff;
+  --accent-3: #7c3aed;
+  --accent-soft: rgba(255, 46, 151, 0.12);
+  --accent-2-soft: rgba(0, 229, 255, 0.1);
+  --on-accent: #0a0016;
+
+  --card-border: 1px solid rgba(255, 46, 151, 0.28);
+  --card-border-hover: 1px solid rgba(0, 229, 255, 0.75);
+  --card-shadow: 0 0 26px -6px rgba(255, 46, 151, 0.28);
+  --card-shadow-hover: 0 0 34px -4px rgba(0, 229, 255, 0.55);
+  --card-blur: blur(16px);
+
+  --radius: 12px;
+  --radius-lg: 16px;
+
+  --nav-bg: rgba(10, 2, 24, 0.8);
+  --heading-gradient: linear-gradient(135deg, #ff2e97 10%, #00e5ff 90%);
+  --accent-gradient: linear-gradient(135deg, #ff2e97, #7c3aed 50%, #00e5ff);
+  --btn-primary-bg: linear-gradient(135deg, #ff2e97, #00e5ff);
+
+  --spotlight-tint: rgba(0, 229, 255, 0.2);
+  --hairline: rgba(255, 46, 151, 0.3);
+  --grain-opacity: 0.035;
+
+  --sk-base: rgba(124, 58, 237, 0.18);
+  --sk-shine: rgba(0, 229, 255, 0.24);
+  --device-frame: #170727;
+  --device-screen: #0e0322;
+  --device-shadow: 0 0 70px -14px rgba(255, 46, 151, 0.8),
+    0 0 0 1px rgba(0, 229, 255, 0.35);
+  --spec-ink: rgba(0, 229, 255, 0.5);
+  --spec-grid: rgba(255, 46, 151, 0.1);
+}
+
+/* ---------------------------------------------------------------
+ * Editorial is the only light theme, so it needs a handful of
+ * structural corrections rather than pure colour swaps.
+ * --------------------------------------------------------------- */
+
+[data-theme="editorial"] {
+  color-scheme: light;
+}
+
+[data-theme="editorial"] .section-heading__title,
+[data-theme="editorial"] .hero-title__gradient,
+[data-theme="editorial"] .about-stat__value {
+  background: none;
+  -webkit-text-fill-color: currentColor;
+  color: var(--text);
+}
+
+[data-theme="editorial"] .hero-title__gradient,
+[data-theme="editorial"] .about-stat__value {
+  color: var(--accent);
+}
+
+/*
+ * Instrument Serif is a display face. It carries the hero and section heads;
+ * anything smaller hands off to the grotesque so subheads keep their weight.
+ */
+[data-theme="editorial"] h3,
+[data-theme="editorial"] h4,
+[data-theme="editorial"] h5,
+[data-theme="editorial"] h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  letter-spacing: -0.015em;
+}
+
+/* The serif monogram needs a little more size to hold the header. */
+[data-theme="editorial"] .site-nav__brand {
+  font-size: 1.3rem;
+  letter-spacing: -0.01em;
+}
+
+/* Hard-shadow cards should snap rather than float. */
+[data-theme="editorial"] .work-card:hover,
+[data-theme="editorial"] .skills-card:hover {
+  transform: translate(-3px, -3px);
+}
+
+[data-theme="editorial"] .section-heading__title {
+  text-transform: uppercase;
+}

@@ -14,13 +14,17 @@
   gap: 1.25rem;
   padding: 1.35rem 1.5rem;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
+  border: var(--card-border);
   background: var(--surface);
-  transition: border-color 0.25s ease;
+  box-shadow: var(--card-shadow);
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
 .career-card:hover {
-  border-color: var(--border-hover);
+  border: var(--card-border-hover);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateX(6px);
 }
 
 .career-card__step {
@@ -41,8 +45,7 @@
 .career-card__head h3 {
   margin: 0;
   font-size: 1.05rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: var(--display-weight);
 }
 
 .career-card__company {

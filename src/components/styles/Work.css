@@ -12,15 +12,18 @@
   display: flex;
   flex-direction: column;
   border-radius: var(--radius-lg);
-  border: 1px solid var(--border);
+  border: var(--card-border);
   background: var(--surface);
+  box-shadow: var(--card-shadow);
   overflow: hidden;
-  transition: border-color 0.25s ease, transform 0.25s ease;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease,
+    transform 0.25s ease;
 }
 
 .work-card:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-3px);
+  border: var(--card-border-hover);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-4px);
 }
 
 .work-card--lead {
@@ -34,11 +37,7 @@
   align-items: center;
   justify-content: center;
   padding: 1.5rem;
-  background: linear-gradient(
-    180deg,
-    rgba(56, 189, 248, 0.06),
-    transparent
-  );
+  background: linear-gradient(180deg, var(--accent-soft), transparent);
 }
 
 .work-card--lead .work-card__device {
@@ -50,11 +49,20 @@
   position: relative;
   padding: 10px;
   border-radius: 28px;
-  border: 2px solid rgba(255, 255, 255, 0.12);
+  border: 2px solid rgba(255, 255, 255, 0.14);
   background: #0f172a;
-  box-shadow:
-    0 20px 50px rgba(0, 0, 0, 0.4),
-    inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="editorial"] .phone-frame {
+  border: 3px solid var(--text);
+  background: var(--text);
+  box-shadow: 8px 8px 0 var(--accent);
+}
+
+[data-theme="neon"] .phone-frame {
+  border-color: rgba(0, 229, 255, 0.45);
+  box-shadow: 0 0 34px -6px rgba(0, 229, 255, 0.55);
 }
 
 .phone-frame::before {
@@ -66,7 +74,7 @@
   width: 40px;
   height: 4px;
   border-radius: 4px;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.2);
 }
 
 .phone-frame img {
@@ -96,8 +104,7 @@
 .work-card__body h3 {
   margin: 0.35rem 0 0.4rem;
   font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: -0.02em;
+  font-weight: var(--display-weight);
 }
 
 .work-card__cat {
@@ -128,6 +135,11 @@
   letter-spacing: 0.06em;
   text-transform: uppercase;
   color: var(--accent);
+  transition: gap 0.2s ease;
+}
+
+.work-card__links a:hover {
+  gap: 0.5rem;
 }
 
 @media screen and (max-width: 1100px) {

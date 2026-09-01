@@ -1,0 +1,138 @@
+/* Cursor-tracking glow. Pair with `handleSpotlight` on pointer move. */
+.spotlight {
+  position: relative;
+}
+
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 50%),
+    var(--spotlight-tint),
+    transparent 68%
+  );
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+.spotlight > * {
+  position: relative;
+  z-index: 1;
+}
+
+/*
+ * Conic border sweeping around the card edge. Masked to a 1px ring so it
+ * survives the stacking context created by transformed cards.
+ */
+[data-theme="neon"] .glow-edge::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  padding: 1px;
+  opacity: 0;
+  pointer-events: none;
+  background: conic-gradient(
+    from var(--edge-angle, 0deg),
+    transparent 0deg,
+    var(--accent) 90deg,
+    var(--accent-2) 180deg,
+    transparent 300deg
+  );
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  transition: opacity 0.3s ease;
+  animation: edge-spin 4s linear infinite;
+}
+
+[data-theme="neon"] .glow-edge:hover::after {
+  opacity: 1;
+}
+
+@property --edge-angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes edge-spin {
+  to {
+    --edge-angle: 360deg;
+  }
+}
+
+/* Text that wipes in with a gradient sweep. */
+.shimmer {
+  background: linear-gradient(
+    100deg,
+    var(--text) 20%,
+    var(--accent) 40%,
+    var(--accent-2) 55%,
+    var(--text) 75%
+  );
+  background-size: 220% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: shimmer-sweep 7s ease-in-out infinite;
+}
+
+@keyframes shimmer-sweep {
+  0%,
+  100% {
+    background-position: 140% 50%;
+  }
+  50% {
+    background-position: -40% 50%;
+  }
+}
+
+@keyframes pulse-dot {
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* Native-style press feedback: everything tappable gives a little. */
+.btn,
+.site-nav__cta,
+.work-card__links a,
+.contact-social a,
+.social-icons span a,
+.resume-button,
+.stack-chip,
+.theme-option {
+  transition: transform 0.12s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.btn:active,
+.site-nav__cta:active,
+.work-card__links a:active,
+.contact-social a:active,
+.social-icons span a:active,
+.resume-button:active,
+.stack-chip:active,
+.theme-option:active {
+  transform: scale(0.955);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .shimmer {
+    animation: none;
+  }
+}

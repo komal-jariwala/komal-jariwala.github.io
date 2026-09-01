@@ -10,10 +10,11 @@ export const profile = {
     "Remote preferred · Hybrid in Surat area · Not open to relocation",
   openTo: ["Full-time", "Freelance", "Contract"] as const,
   resume: "/resume.pdf",
+  website: "https://komal-jariwala.github.io/",
   social: {
     github: "https://github.com/komaljariwala",
     linkedin: "https://www.linkedin.com/in/komal-jariwala",
-    twitter: "https://x.com/komaljariwala",
+    twitter: "https://x.com/Komal_r_a_n_a",
     instagram: "https://www.instagram.com/komaljariwala",
   },
 };

@@ -1,5 +1,9 @@
+import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
+import Counter from "./Counter";
 import { alsoBuilt } from "../data/projects";
+import { fadeUp, scaleIn, stagger, viewportOnce } from "../lib/motion";
+import { handleSpotlight } from "../lib/spotlight";
 import "./styles/About.css";
 
 const highlights = [
@@ -26,40 +30,57 @@ const About = () => {
         subtitle="Senior mobile engineer — Surat, India. Remote & hybrid friendly."
       />
 
-      <div className="about-grid">
+      <motion.div
+        className="about-grid"
+        variants={stagger(0.1)}
+        initial="hidden"
+        whileInView="show"
+        viewport={viewportOnce}
+      >
         <div className="about-copy">
-          <div className="about-status">
+          <motion.div className="about-status" variants={fadeUp}>
             <span className="status-dot" />
             Shipping @ HAAT
-          </div>
-          <p className="about-lead">
-            I turn product ideas into production-ready iOS & Android apps with{" "}
-            <strong>React Native</strong> and <strong>TypeScript</strong>. Healthcare,
-            wellness, food delivery — I&apos;ve shipped in all of them.
-          </p>
-          <p className="about-text">
-            Obsessed with smooth UI, fast lists, and zero-crash releases. Fastlane,
-            CodePush, Sentry — the full ship pipeline. Not open to relocation.
-          </p>
-          <p className="about-extra">{alsoBuilt}</p>
+          </motion.div>
+          <motion.p className="about-lead" variants={fadeUp}>
+            I turn product ideas into production-ready iOS &amp; Android apps
+            with <strong>React Native</strong> and <strong>TypeScript</strong>.
+            Healthcare, wellness, food delivery — I&apos;ve shipped in all of
+            them.
+          </motion.p>
+          <motion.p className="about-text" variants={fadeUp}>
+            Obsessed with smooth UI, fast lists, and zero-crash releases.
+            Fastlane, CodePush, Sentry — the full ship pipeline. Not open to
+            relocation.
+          </motion.p>
+          <motion.p className="about-extra" variants={fadeUp}>
+            {alsoBuilt}
+          </motion.p>
         </div>
 
         <div className="about-side">
-          <div className="about-stats">
+          <motion.div className="about-stats" variants={stagger(0.09)}>
             {highlights.map((item) => (
-              <div key={item.label} className="about-stat">
-                <span className="about-stat__value">{item.value}</span>
+              <motion.div
+                key={item.label}
+                className="about-stat spotlight"
+                variants={scaleIn}
+                onPointerMove={handleSpotlight}
+              >
+                <Counter value={item.value} className="about-stat__value" />
                 <span className="about-stat__label">{item.label}</span>
-              </div>
+              </motion.div>
             ))}
-          </div>
-          <div className="about-traits">
+          </motion.div>
+          <motion.div className="about-traits" variants={stagger(0.05)}>
             {traits.map((trait) => (
-              <span key={trait}>{trait}</span>
+              <motion.span key={trait} variants={scaleIn}>
+                {trait}
+              </motion.span>
             ))}
-          </div>
+          </motion.div>
         </div>
-      </div>
+      </motion.div>
     </section>
   );
 };

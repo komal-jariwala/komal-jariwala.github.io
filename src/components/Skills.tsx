@@ -1,4 +1,7 @@
+import { motion } from "framer-motion";
 import SectionHeading from "./SectionHeading";
+import { fadeUp, scaleIn, stagger, viewportOnce } from "../lib/motion";
+import { handleSpotlight } from "../lib/spotlight";
 import "./styles/Skills.css";
 
 const skillBlocks = [
@@ -43,22 +46,32 @@ const Skills = () => (
       title="What I build"
       subtitle="End-to-end mobile — UI, APIs, and shipping to the stores."
     />
-    <div className="skills-bento">
+    <motion.div
+      className="skills-bento"
+      variants={stagger(0.12)}
+      initial="hidden"
+      whileInView="show"
+      viewport={viewportOnce}
+    >
       {skillBlocks.map((block) => (
-        <article
+        <motion.article
           key={block.id}
-          className={`skills-card skills-card--${block.accent}`}
+          className={`skills-card spotlight glow-edge skills-card--${block.accent}`}
+          variants={fadeUp}
+          onPointerMove={handleSpotlight}
         >
           <h3>{block.title}</h3>
           <p>{block.description}</p>
-          <div className="skills-tags">
+          <motion.div className="skills-tags" variants={stagger(0.04)}>
             {block.skills.map((skill) => (
-              <span key={skill}>{skill}</span>
+              <motion.span key={skill} variants={scaleIn}>
+                {skill}
+              </motion.span>
             ))}
-          </div>
-        </article>
+          </motion.div>
+        </motion.article>
       ))}
-    </div>
+    </motion.div>
   </section>
 );
 

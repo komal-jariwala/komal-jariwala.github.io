@@ -1,0 +1,83 @@
+.island {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+  height: 34px;
+  padding: 0 0.7rem;
+  border-radius: 999px;
+  background: #07070c;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  color: #f4f6fb;
+  overflow: hidden;
+  cursor: default;
+  user-select: none;
+}
+
+/* On paper the island reads as a printed status chip. */
+[data-theme="editorial"] .island {
+  background: var(--text);
+  border-color: var(--text);
+  color: #fffdf6;
+}
+
+[data-theme="neon"] .island {
+  border-color: rgba(0, 229, 255, 0.35);
+  box-shadow: 0 0 18px -6px var(--accent);
+}
+
+.island__dot {
+  flex-shrink: 0;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  animation: pulse-dot 2s ease infinite;
+}
+
+.island[data-tone="build"] .island__dot {
+  background: #fbbf24;
+  box-shadow: 0 0 8px #fbbf24;
+}
+
+.island[data-tone="ok"] .island__dot {
+  background: #38bdf8;
+  box-shadow: 0 0 8px #38bdf8;
+}
+
+.island__body {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  white-space: nowrap;
+}
+
+.island__icon {
+  display: inline-flex;
+  font-size: 0.9rem;
+  opacity: 0.85;
+}
+
+.island__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+
+.island__text strong {
+  font-size: 0.68rem;
+  font-weight: 600;
+}
+
+.island__text small {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  opacity: 0.65;
+}
+
+/* The header is already tight below this width. */
+@media screen and (min-width: 900px) {
+  .island {
+    display: inline-flex;
+  }
+}

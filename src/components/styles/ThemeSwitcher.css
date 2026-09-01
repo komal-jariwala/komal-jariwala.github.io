@@ -1,0 +1,171 @@
+.theme-switcher {
+  position: fixed;
+  right: 1.25rem;
+  bottom: 1.25rem;
+  z-index: 120;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.6rem;
+}
+
+.theme-trigger {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.7rem 1.1rem;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  background: var(--surface-solid);
+  box-shadow: 0 10px 30px -10px var(--accent);
+  color: var(--text);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+}
+
+/* Halo that draws attention to the switcher on arrival. */
+.theme-trigger::after {
+  content: "";
+  position: absolute;
+  inset: -3px;
+  border-radius: inherit;
+  border: 1px solid var(--accent);
+  opacity: 0;
+  animation: trigger-halo 3.4s ease-out 1.6s 3;
+  pointer-events: none;
+}
+
+@keyframes trigger-halo {
+  0% {
+    opacity: 0.7;
+    transform: scale(1);
+  }
+  60%,
+  100% {
+    opacity: 0;
+    transform: scale(1.22);
+  }
+}
+
+.theme-trigger:hover {
+  box-shadow: 0 12px 36px -8px var(--accent);
+  color: var(--accent);
+}
+
+[data-theme="editorial"] .theme-trigger {
+  border: 2px solid var(--text);
+  box-shadow: 4px 4px 0 var(--text);
+}
+
+.theme-trigger__icon {
+  display: inline-flex;
+  font-size: 1rem;
+  color: var(--accent);
+}
+
+.theme-panel {
+  width: 15.5rem;
+  padding: 0.75rem;
+  border-radius: var(--radius-lg);
+  border: var(--card-border);
+  background: var(--nav-bg);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  box-shadow: var(--card-shadow);
+  transform-origin: bottom right;
+}
+
+.theme-panel__title {
+  margin: 0 0 0.5rem;
+  padding-left: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.theme-option {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  width: 100%;
+  padding: 0.55rem 0.6rem;
+  border: 1px solid transparent;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.2s ease, border-color 0.2s ease;
+}
+
+.theme-option:hover {
+  background: var(--surface);
+}
+
+.theme-option--active {
+  border: var(--card-border-hover);
+  background: var(--accent-soft);
+}
+
+.theme-option__swatch {
+  display: inline-flex;
+  flex-shrink: 0;
+  gap: 2px;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(128, 128, 128, 0.18);
+}
+
+.theme-option__swatch i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+}
+
+.theme-option__text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.25;
+}
+
+.theme-option__text strong {
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
+.theme-option__text small {
+  font-size: 0.68rem;
+  color: var(--muted);
+}
+
+.theme-option__check {
+  margin-left: auto;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+/*
+ * Below 1024 the WhatsApp CTA takes the bottom-right corner, so the switcher
+ * stacks directly above it instead of moving left over the hero copy.
+ */
+@media screen and (max-width: 1024px) {
+  .theme-switcher {
+    bottom: 4.75rem;
+  }
+
+  .theme-trigger__label {
+    display: none;
+  }
+
+  .theme-trigger {
+    padding: 0.7rem;
+  }
+}
