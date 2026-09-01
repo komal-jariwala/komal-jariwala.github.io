@@ -12,7 +12,7 @@ const Work = () => {
       <SectionHeading
         index="03"
         title="Featured apps"
-        subtitle="Live on Google Play — healthcare, wellness & productivity."
+        subtitle="Live on Google Play — food delivery, healthcare, wellness & developer tools."
       />
 
       <motion.div

@@ -9,13 +9,15 @@ const roles = [
     title: "Sr. React Native Developer",
     company: "HAAT",
     period: "Oct 2025 – Present",
-    detail: "Food delivery · Android 16K, list perf, startup shipping pace.",
+    detail:
+      "HAAT Delivery on Play (1M+) · Android 16K, list perf, startup shipping pace.",
   },
   {
     title: "Software Engineer",
     company: "Logicwind",
     period: "Sep 2022 – Sep 2025",
-    detail: "30% faster load times · native modules · mentored juniors.",
+    detail:
+      "AppsOnAir OTA distribution · 30% faster loads · native modules · mentored juniors.",
   },
   {
     title: "React Native Developer",

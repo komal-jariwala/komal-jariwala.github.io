@@ -24,6 +24,8 @@ export type AppEntry = {
 };
 
 const METRICS: Record<string, { metric: string; rating: string }> = {
+  "HAAT Delivery": { metric: "1M+", rating: "4.5" },
+  AppsOnAir: { metric: "1K+", rating: "—" },
   "Hydreight Wellness": { metric: "10K+", rating: "4.6" },
   "The DRIPBaR": { metric: "5K+", rating: "4.8" },
   ContactBook: { metric: "10K+", rating: "4.5" },
@@ -53,6 +55,6 @@ export const stackItems: { icon: ReactNode; label: string; note: string }[] = [
 
 export const profileStats = [
   { value: "7+", label: "Years" },
-  { value: "25K+", label: "Downloads" },
-  { value: "3", label: "Live apps" },
+  { value: "1M+", label: "Downloads" },
+  { value: "5", label: "Live apps" },
 ];

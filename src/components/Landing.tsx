@@ -7,8 +7,8 @@ import "./styles/Landing.css";
 
 const heroStats = [
   { value: "7+", label: "Years" },
-  { value: "25K+", label: "Downloads" },
-  { value: "3", label: "Live apps" },
+  { value: "1M+", label: "Downloads" },
+  { value: "5", label: "Live apps" },
 ];
 
 const Landing = () => {

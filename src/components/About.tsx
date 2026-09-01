@@ -8,8 +8,8 @@ import "./styles/About.css";
 
 const highlights = [
   { value: "7+", label: "Years mobile" },
-  { value: "10K+", label: "App downloads" },
-  { value: "3", label: "Live on stores" },
+  { value: "1M+", label: "App downloads" },
+  { value: "5", label: "Live on stores" },
 ];
 
 const traits = [
