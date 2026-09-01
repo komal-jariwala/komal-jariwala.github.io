@@ -4,7 +4,6 @@
  * otherwise they will not follow the theme switcher.
  */
 
-:root,
 [data-theme="aurora"] {
   --font-display: "Bricolage Grotesque", "Geist", system-ui, sans-serif;
   --display-weight: 700;
@@ -151,13 +150,71 @@
   --spec-grid: rgba(255, 46, 151, 0.1);
 }
 
+/*
+ * Maison — quiet luxury. Cloud Dancer canvas, mocha structure, oxblood for
+ * anything actionable, brass reserved for hairlines and highlights.
+ * Bound to :root so first paint matches the default before data-theme lands.
+ */
+:root,
+[data-theme="maison"] {
+  --font-display: "Instrument Serif", Georgia, serif;
+  --display-weight: 400;
+  --display-tracking: -0.015em;
+
+  --bg: #efeeea;
+  --bg-2: #e6e3dc;
+  --surface: #f7f6f2;
+  --surface-2: #eceae3;
+  --surface-solid: #f7f6f2;
+
+  --text: #3a2e26;
+  --muted: #7a5e4b;
+
+  --accent: #5e1f23;
+  --accent-2: #b89a70;
+  --accent-3: #7a5e4b;
+  --accent-soft: rgba(94, 31, 35, 0.07);
+  --accent-2-soft: rgba(184, 154, 112, 0.16);
+  --on-accent: #f7f6f2;
+
+  --card-border: 1px solid rgba(184, 154, 112, 0.36);
+  --card-border-hover: 1px solid rgba(94, 31, 35, 0.42);
+  --card-shadow: 0 12px 30px -24px rgba(58, 46, 38, 0.5);
+  --card-shadow-hover: 0 20px 44px -26px rgba(58, 46, 38, 0.55);
+  --card-blur: none;
+
+  --radius: 10px;
+  --radius-lg: 16px;
+
+  --nav-bg: rgba(239, 238, 234, 0.82);
+  --heading-gradient: linear-gradient(135deg, #3a2e26 35%, #7a5e4b);
+  --accent-gradient: linear-gradient(135deg, #5e1f23, #7a5e4b 60%, #b89a70);
+  --btn-primary-bg: #5e1f23;
+
+  --spotlight-tint: rgba(184, 154, 112, 0.18);
+  --hairline: rgba(122, 94, 75, 0.22);
+  --grain-opacity: 0.03;
+
+  --sk-base: #e6e3dc;
+  --sk-shine: #f4f2ed;
+  --device-frame: #3a2e26;
+  --device-screen: #f7f6f2;
+  --device-shadow: 0 44px 80px -42px rgba(58, 46, 38, 0.6),
+    0 0 0 1px rgba(184, 154, 112, 0.35);
+
+  /* Deliberately faint — the spec motifs stay a texture, not a diagram. */
+  --spec-ink: rgba(122, 94, 75, 0.4);
+  --spec-grid: rgba(122, 94, 75, 0.05);
+}
+
 /* ---------------------------------------------------------------
- * Editorial is the only light theme, so it needs a handful of
- * structural corrections rather than pure colour swaps.
+ * Light themes need a handful of structural corrections rather
+ * than pure colour swaps. Dark themes restore color-scheme.
  * --------------------------------------------------------------- */
 
-[data-theme="editorial"] {
-  color-scheme: light;
+[data-theme="aurora"],
+[data-theme="neon"] {
+  color-scheme: dark;
 }
 
 [data-theme="editorial"] .section-heading__title,
@@ -180,16 +237,30 @@
 [data-theme="editorial"] h3,
 [data-theme="editorial"] h4,
 [data-theme="editorial"] h5,
-[data-theme="editorial"] h6 {
+[data-theme="editorial"] h6,
+[data-theme="maison"] h3,
+[data-theme="maison"] h4,
+[data-theme="maison"] h5,
+[data-theme="maison"] h6 {
   font-family: var(--font-sans);
   font-weight: 600;
   letter-spacing: -0.015em;
 }
 
 /* The serif monogram needs a little more size to hold the header. */
-[data-theme="editorial"] .site-nav__brand {
+[data-theme="editorial"] .site-nav__brand,
+[data-theme="maison"] .site-nav__brand {
   font-size: 1.3rem;
   letter-spacing: -0.01em;
+}
+
+/*
+ * At hero size the brass tail of the accent gradient reads as luxury; on the
+ * small clipped stat numerals it just reads as washed out, so they stop at
+ * mocha. background-image only — the shorthand would reset background-clip.
+ */
+[data-theme="maison"] .about-stat__value {
+  background-image: linear-gradient(135deg, #5e1f23, #7a5e4b);
 }
 
 /* Hard-shadow cards should snap rather than float. */

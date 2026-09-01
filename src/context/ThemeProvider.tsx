@@ -25,12 +25,18 @@ export const themes = [
     blurb: "Cyber glow & particles",
     swatch: ["#ff2e97", "#00e5ff", "#7c3aed"],
   },
+  {
+    id: "maison",
+    name: "Maison",
+    blurb: "Quiet luxury, warm stone",
+    swatch: ["#5e1f23", "#b89a70", "#7a5e4b"],
+  },
 ] as const;
 
 export type ThemeId = (typeof themes)[number]["id"];
 
 const STORAGE_KEY = "kj-theme";
-const DEFAULT_THEME: ThemeId = "aurora";
+const DEFAULT_THEME: ThemeId = "maison";
 
 const isThemeId = (value: unknown): value is ThemeId =>
   themes.some((theme) => theme.id === value);
@@ -54,6 +60,7 @@ const BROWSER_CHROME_COLOR: Record<ThemeId, string> = {
   aurora: "#05070f",
   editorial: "#f2ede1",
   neon: "#06010e",
+  maison: "#efeeea",
 };
 
 interface ThemeContextValue {

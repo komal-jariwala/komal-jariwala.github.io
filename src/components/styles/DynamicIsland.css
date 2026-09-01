@@ -25,6 +25,12 @@
   box-shadow: 0 0 18px -6px var(--accent);
 }
 
+[data-theme="maison"] .island {
+  background: var(--device-frame);
+  border-color: rgba(184, 154, 112, 0.4);
+  color: #f7f6f2;
+}
+
 .island__dot {
   flex-shrink: 0;
   width: 7px;

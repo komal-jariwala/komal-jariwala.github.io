@@ -219,10 +219,119 @@
   );
 }
 
+/* ---------------------------------------------------------------
+ * Maison — architectural light on warm stone
+ * --------------------------------------------------------------- */
+
+.maison-field {
+  position: absolute;
+  inset: -12%;
+}
+
+/*
+ * Multiply rather than screen: these are pigments settling into a light
+ * ground, not light sources over a dark one.
+ */
+.maison-wash {
+  position: absolute;
+  display: block;
+  border-radius: 50%;
+  filter: blur(90px);
+  mix-blend-mode: multiply;
+  will-change: transform;
+}
+
+.maison-wash--1 {
+  top: -6%;
+  left: -4%;
+  width: 48vw;
+  height: 48vw;
+  background: radial-gradient(
+    circle,
+    rgba(184, 154, 112, 0.34) 0%,
+    transparent 66%
+  );
+  animation: maison-drift-a 38s ease-in-out infinite;
+}
+
+.maison-wash--2 {
+  right: -8%;
+  bottom: -12%;
+  width: 54vw;
+  height: 54vw;
+  background: radial-gradient(
+    circle,
+    rgba(122, 94, 75, 0.24) 0%,
+    transparent 66%
+  );
+  animation: maison-drift-b 46s ease-in-out infinite;
+}
+
+.maison-wash--3 {
+  top: 32%;
+  left: 42%;
+  width: 34vw;
+  height: 34vw;
+  background: radial-gradient(
+    circle,
+    rgba(94, 31, 35, 0.14) 0%,
+    transparent 68%
+  );
+  animation: maison-drift-a 54s ease-in-out infinite reverse;
+}
+
+/* Brass hairlines standing in for columns. */
+.maison-rule {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(184, 154, 112, 0.5) 45%,
+    transparent
+  );
+  animation: maison-breathe 14s ease-in-out infinite;
+}
+
+.maison-rule--1 {
+  left: 17%;
+}
+
+.maison-rule--2 {
+  right: 21%;
+  animation-delay: -7s;
+}
+
+@keyframes maison-drift-a {
+  50% {
+    transform: translate3d(5%, 7%, 0) scale(1.12);
+  }
+}
+
+@keyframes maison-drift-b {
+  50% {
+    transform: translate3d(-7%, -5%, 0) scale(1.1);
+  }
+}
+
+@keyframes maison-breathe {
+  0%,
+  100% {
+    opacity: 0.35;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .aurora-blob,
   .editorial-shape,
-  .neon-glow {
+  .neon-glow,
+  .maison-wash,
+  .maison-rule {
     animation: none !important;
   }
 }

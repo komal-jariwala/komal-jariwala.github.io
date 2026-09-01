@@ -18,7 +18,7 @@
   font-family: var(--font-sans);
   line-height: 1.5;
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
   color: var(--text);
   background-color: var(--bg);
   font-synthesis: none;

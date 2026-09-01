@@ -35,6 +35,16 @@ const ThemeBackground = () => {
         </div>
       )}
 
+      {theme === "maison" && (
+        <div className="maison-field">
+          <span className="maison-wash maison-wash--1" />
+          <span className="maison-wash maison-wash--2" />
+          <span className="maison-wash maison-wash--3" />
+          <span className="maison-rule maison-rule--1" />
+          <span className="maison-rule maison-rule--2" />
+        </div>
+      )}
+
       <SpecBackground />
       <div className="theme-grain" />
     </div>
