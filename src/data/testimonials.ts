@@ -8,4 +8,4 @@ export type Testimonial = {
 export const testimonials: Testimonial[] = [];
 
 export const linkedInRecommendationsUrl =
-  "https://www.linkedin.com/in/komal-jariwala/details/recommendations/";
+  "https://www.linkedin.com/in/itskomaljariwala/details/recommendations/";

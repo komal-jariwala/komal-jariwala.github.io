@@ -13,7 +13,7 @@ export const profile = {
   website: "https://komal-jariwala.github.io/",
   social: {
     github: "https://github.com/komaljariwala",
-    linkedin: "https://www.linkedin.com/in/komal-jariwala",
+    linkedin: "https://www.linkedin.com/in/itskomaljariwala/",
     twitter: "https://x.com/Komal_r_a_n_a",
     instagram: "https://www.instagram.com/komaljariwala",
   },
