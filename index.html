@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.svg" />
+    <meta name="theme-color" content="#efeeea" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Komal Jariwala — Senior Mobile Developer</title>
+    <meta
+      name="description"
+      content="Senior Mobile Developer with 7+ years building React Native apps. Open to full-time roles and freelance projects. Healthcare, wellness & startup experience."
+    />
+    <script>
+      // Applied before first paint so a stored theme never flashes the default.
+      (function () {
+        try {
+          var valid = ["aurora", "editorial", "neon", "maison"];
+          var query = new URLSearchParams(location.search).get("theme");
+          var stored = localStorage.getItem("kj-theme");
+          var picked =
+            valid.indexOf(query) !== -1
+              ? query
+              : valid.indexOf(stored) !== -1
+                ? stored
+                : "maison";
+          document.documentElement.dataset.theme = picked;
+        } catch (e) {
+          document.documentElement.dataset.theme = "maison";
+        }
+      })();
+    </script>
+    <script type="module" crossorigin src="/assets/index-DhqO4Qa5.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-D1R3lHPg.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>
